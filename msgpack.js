@@ -159,7 +159,7 @@ Decoder.prototype.parse = function () {
     return value;
   // uint64
   case 0xcf:
-    value = bops.readUInt64BE(this.buffer, this.offset + 1);
+    value = value = bops.readUInt32BE(this.buffer, this.offset + 1) * 0x100000000 + bops.readUInt32BE(this.buffer, this.offset + 5);
     this.offset += 9;
     return value;
   // int 8
